@@ -1,0 +1,5 @@
+*.pth
+*.pt
+*.ply
+output/
+results/

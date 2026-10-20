@@ -1,0 +1,13 @@
+2026-10-12 10:49:53.721 | INFO     | __main__:main:170 - Loaded 181689 gaussians from results/pig_shoulder_v2/ckpts/ckpt_6999.pt
+2026-10-12 10:49:53.721 | INFO     | __main__:main:171 - sh_degree=1
+2026-10-12 10:50:00.997 | INFO     | __main__:evaluate:126 - Rendered 20/104 views
+2026-10-12 10:50:02.352 | INFO     | __main__:evaluate:126 - Rendered 40/104 views
+2026-10-12 10:50:03.723 | INFO     | __main__:evaluate:126 - Rendered 60/104 views
+2026-10-12 10:50:05.109 | INFO     | __main__:evaluate:126 - Rendered 80/104 views
+2026-10-12 10:50:06.708 | INFO     | __main__:evaluate:126 - Rendered 100/104 views
+2026-10-12 10:50:07.012 | INFO     | __main__:main:188 - Mean PSNR 25.15 dB | Mean SSIM 0.6497
+2026-10-12 10:50:08.358 | INFO     | __main__:plot_grid:159 - Saved comparison grid -> results/pig_shoulder_v2/comparison/comparison_grid.png
+2026-10-12 10:50:08.775 | INFO     | __main__:plot_grid:159 - Saved comparison grid -> results/pig_shoulder_v2/comparison/comparison_00.png
+2026-10-12 10:50:09.104 | INFO     | __main__:plot_grid:159 - Saved comparison grid -> results/pig_shoulder_v2/comparison/comparison_01.png
+2026-10-12 10:50:09.436 | INFO     | __main__:plot_grid:159 - Saved comparison grid -> results/pig_shoulder_v2/comparison/comparison_02.png
+2026-10-12 10:50:09.777 | INFO     | __main__:plot_grid:159 - Saved comparison grid -> results/pig_shoulder_v2/comparison/comparison_03.png

@@ -1,0 +1,10 @@
+{
+  "checkpoint": "results/pig_shoulder_v2/ckpts/ckpt_6999.pt",
+  "split": "val",
+  "num_views": 104,
+  "num_gaussians": 181689,
+  "psnr_mean": 25.15042132597703,
+  "psnr_std": 0.6912424034170179,
+  "ssim_mean": 0.6496751990455848,
+  "ssim_std": 0.02342491474383078
+}
