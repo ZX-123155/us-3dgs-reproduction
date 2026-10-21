@@ -1,0 +1,58 @@
+batch_size: 8
+ckpt: null
+config_file: data/spine_phantom/conf_20k.json
+disable_viewer: true
+eval_steps:
+- 1000
+- 10000
+- 20000
+eval_trainset: false
+far_plane: 10000000000.0
+global_scale: 1.0
+images_file_train: data/spine_phantom/images_train.npy
+images_file_val: data/spine_phantom/images_val_v2.npy
+init_extent: 0.8
+init_num_pts: 500000
+init_scale: 0.05
+init_transmittance: 0.99
+lpips_net: alex
+max_steps: 20000
+means_lr: 0.0001
+near_plane: 0.01
+ply_steps:
+- 20000
+port: 8082
+pose_frontback_noise: 0.2
+pose_sideways_noise: 0.0
+pose_updown_noise: 0.0
+poses_file_train: data/spine_phantom/poses_train.npy
+poses_file_val: data/spine_phantom/poses_val_v2.npy
+quats_lr: 0.005
+result_dir: results/spine_phantom
+save_ply: true
+save_steps:
+- 20000
+scale_reg: 0.01
+scales_lr: 0.005
+sh0_lr: 0.005
+shN_lr: 1.0e-05
+sh_degree: 1
+sh_degree_interval: 1000
+ssim_lambda: 0.5
+steps_scaler: 1.0
+strategy: !!python/object:gsplat.strategy.ultrasound.Ultrasound3DStrategy
+  grow_grad3d: 5.0e-06
+  grow_scale3d: 0.01
+  max_gaussians: 500000
+  prune_scale3d: 0.1
+  prune_scale3d_min: 1.0e-05
+  refine_every: 2500
+  refine_start_iter: 1000
+  refine_stop_iter: 20000
+  verbose: true
+tb_every: 100
+tb_save_image: false
+transmittances_lr: 0.0005
+ultrasound_far_plane: 9.0
+ultrasound_near_plane: 0.0
+ultrasound_opening_width: 5.13

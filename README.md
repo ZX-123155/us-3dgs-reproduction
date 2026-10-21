@@ -71,22 +71,43 @@
 
 ## 结果二：UltraG-Ray
 
-### pig_shoulder_v2（上次跑到 ~9,999 步，未完成）
+两个场景均训练到 **20,000 步**（原计划 30,000，因单步耗时随高斯点数增长而显著上升，主动封顶）。
+
+### pig_shoulder_v2（20k，本次完成）
 
 验证集 104 个视角：
 
 | step | num_GS | PSNR | SSIM |
 |---|---|---|---|
-| 999 | 500,000 | 23.578 | 0.7061 |
-| 9,999 | 285,033 | **25.395** | **0.7680** |
+| 999 | 500,000 | 23.577 | 0.7061 |
+| 9,999 | 284,874 | 25.442 | 0.7676 |
+| **19,999** | 492,165 | **25.553** | **0.7708** |
 
-产物：[`ultragray/pig_shoulder_v2/`](ultragray/pig_shoulder_v2)（`stats/*.json`、`stats/val_*.csv` 含 40+ 指标逐 step 记录、`comparison/` 渲染对比）
+产物：[`ultragray/pig_shoulder_v2/`](ultragray/pig_shoulder_v2)（`stats/val_*.csv` 含 40+ 指标逐 step 记录、`renders/` 取最终步的 gt/ultrasound/echo/trans 各 2 帧）
 
-> 注意：`trainer.py` 的 `--ckpt` 参数**只做评估**（`runner.eval()`），不续训；最终指标需从头训练到 30,000 步。
+> **10k → 20k 只涨 0.11 dB**，已明显收敛。单步耗时从启动时的约 5 it/s 一路衰减到 **1.6 it/s**
+> （高斯点数先被裁剪到 28 万，再增长回 49 万），因此 20k 封顶是合理折中。
 
-### spine_phantom（未开始）
+### spine_phantom（20k，本次完成）
 
-数据（`images_train.npy` / `poses_train.npy` / `images_val_v2.npy` / `poses_val_v2.npy`）已就位，尚未训练。
+| step | num_GS | PSNR | SSIM |
+|---|---|---|---|
+| 999 | 500,000 | 24.153 | 0.9050 |
+| 9,999 | 62,518 | 24.845 | 0.9156 |
+| **19,999** | 101,569 | **25.920** | **0.9279** |
+
+产物：[`ultragray/spine_phantom/`](ultragray/spine_phantom)
+
+> 与 pig_shoulder 相反，spine 在 10k→20k 仍涨 **+1.08 dB**，属于**尚未收敛**。
+> 差异根源在点数：spine 稳定在 ~10 万高斯，pig 涨到 49 万——点数少则训练快（40+ it/s vs 1.6 it/s），
+> 同样的 20k 步对 spine 而言"训练量"更少。**封顶步数应按场景收敛情况定，不能一刀切。**
+
+### 上次未完成运行（归档）
+
+上一轮 pig_shoulder 只跑到 ~9,999 步（PSNR 25.395），产物归档在
+[`ultragray/pig_shoulder_prev_9999/`](ultragray/pig_shoulder_prev_9999)（含 4 张对比图与早停指标）。
+
+> 注意：`trainer.py` 的 `--ckpt` 参数**只做评估**（`runner.eval()`），不续训；要拿到完整结果只能从头训练。
 
 ---
 
