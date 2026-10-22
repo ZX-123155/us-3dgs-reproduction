@@ -3,3 +3,7 @@
 *.ply
 output/
 results/
+
+# 例外：UltraG-Ray 两个场景的最终权重（合计 17MB，便于他人直接渲染复现，无需重训）
+!ultragray/pig_shoulder_v2/ckpts/ckpt_6999.pt
+!ultragray/spine_phantom/ckpts/ckpt_19999.pt

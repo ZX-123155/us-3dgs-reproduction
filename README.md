@@ -102,8 +102,12 @@
 > 差异根源在点数：spine 稳定在 ~10 万高斯，pig 涨到 49 万——点数少则训练快（40+ it/s vs 1.6 it/s），
 > 同样的 20k 步对 spine 而言"训练量"更少。**封顶步数应按场景收敛情况定，不能一刀切。**
 
-### 上次未完成运行（归档）
+> **权重已随仓库提供**（合计约 17 MB）：
+> `ultragray/pig_shoulder_v2/ckpts/ckpt_6999.pt`（11 MB，step 7000）与
+> `ultragray/spine_phantom/ckpts/ckpt_19999.pt`（5.9 MB，step 20000）。
+> 可直接用项目里的 `render_comparison.py` 或 `viewer.py` 加载，**无需重新训练**。
 
+### 上次未完成运行（归档）
 上一轮 pig_shoulder 只跑到 ~9,999 步（PSNR 25.395），产物归档在
 [`ultragray/pig_shoulder_prev_9999/`](ultragray/pig_shoulder_prev_9999)（含 4 张对比图与早停指标）。
 
